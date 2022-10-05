@@ -1,2 +1,16 @@
 pip install pyspark
 pip install pandas
+pip install numpy
+pip install os
+pip install zipfile
+pip install geopandas
+pip install dbfread
+pip install urllib
+pip install operator
+pip install functools
+pip install folium
+pip install shapely
+pip install matplotlib
+pip install seaborn
+pip install 
+pip install 
