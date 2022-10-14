@@ -12,5 +12,8 @@ pip install folium
 pip install shapely
 pip install matplotlib
 pip install seaborn
-pip install 
+pip install IPython
+pip install keras
+pip install tensorflow
+pip install scipy
 pip install 
