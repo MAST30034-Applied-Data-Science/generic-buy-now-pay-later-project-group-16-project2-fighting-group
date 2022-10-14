@@ -1,4 +1,4 @@
-# !!Remember to add comma before the NOTES!! Organise the variable NAMES! MAGIC Numbers!
+
 from pyspark.sql import SparkSession
 from pyspark.sql import functions as F
 from pyspark.sql import Window
@@ -127,7 +127,7 @@ for i in range(len(tbl_merchants_pd)):
 merchants = tbl_merchants_pd[['merchant_abn', 'Store_type', 'Revenue_levels', 'Take_rate']]
 merchants.to_parquet(f"data/curated/final_merchant.parquet")
 ## read external data
-#Go back one level from notebook to data 
+# Go back one level from notebook to data 
 output_relative_dir = 'data/'
 
 if not os.path.exists(output_relative_dir):
@@ -201,7 +201,6 @@ for file in files.namelist():
     files.extract(file, f"data/outer/2021sa2_shapefile")
 
 # Download shapefile for each SA2 region
-# !!!WARNING!!! THIS CODE IS GOING TO TAKE 10 MINUTES
 def get_shapefile(url):
     geojson_option = "?_profile=oai&_mediatype=application/geo+json"
     try:
