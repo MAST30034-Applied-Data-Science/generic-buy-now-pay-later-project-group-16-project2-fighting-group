@@ -11,7 +11,7 @@ Group members and student ID:
 
 ## Project Information
 **Research Goal:** 
-- Generate some suitable features from the given tables. Then develop a ranking systme to select the top 100 merchants for partership with buy now pay later company. 
+- Generate some suitable features from the given tables. Then establish a ranking systme to select the top 100 merchants for partership with buy now pay later company. 
 - Discover what feature(s) can greatly separated merchants that should and shouldn’t be accepted for partnership.
 
 **Timeline:** The timeline for the research area is 28/02/2021 - 28/08/2022
