@@ -3,11 +3,11 @@
 ## Group Information
 Group number: 16 <br />
 Group members and student ID:
-- Ke Zhang: 
+- Ke Zhang: 1053318
 - Leyao Lyu: 1173989
-- Seren Adachi: 
-- Xiangyi He: 
-- Ziyi Wang: 
+- Seren Adachi: 1156523
+- Xiangyi He: 1166146
+- Ziyi Wang: 1166087
 
 ## Project Information
 **Research Goal:** 
