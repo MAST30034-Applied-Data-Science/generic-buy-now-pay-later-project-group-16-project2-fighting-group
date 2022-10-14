@@ -22,22 +22,22 @@ Group members and student ID:
 - **File with 2016 SA2 info and 2021 SA2 info:** https://www.abs.gov.au/statistics/standards/australian-statistical-geography-standard-asgs-edition-3/jul2021-jun2026/access-and-downloads/correspondences/CG_SA2_2016_SA2_2021.csv
 
 ## Pipeline
-- **Please visit the `scripts` directory and run the files in order:**
-  - `requirements.txt`: install all the package needed for the rest of code
-  - `ETL script.py`: 
-    - read the files from `data/tables` directory
-    - preprocess the data, such as detect NULL values, delete outliers
-    - generated some features and export some tables to `data/curated` directory
-    - download the external datasets to `data/external` and `data/outer` directories
-- **Please visit the `models` directory and run the files in order:**
-  - `prediction.ipynb`: use multi-layer perceptron model to predict the next monthly sales for each merchant, then export the table to `data/curated` directory 
-- **Please visit the `models` directory and run the files in order:**
-  - `Combine_table.ipynb`: read the files from `data/curated` directory to curate a final dataset for the ranking system, export the final dataset (named 'merchant_info') to `data/curated` directory
-  - `geovisualisation.ipynb`: draw some geographical maps from the external datasets in `data/external` and `data/outer` directories
-  - `Visualization.ipynb`: draw some images from the final dataset and save them to `plots` directory <br />
-- **Please visit the `models` directory again and run the files in order:**
-  - `Fitting_model.ipynb`: 
-    - use two different models and combined their ranking result to get the final ranking on the merchants, then select the top 100 merchants
-    - grouped the merchants into 5 segments, select the top 10 merchants in each segments
-    - export the files to `data/curated` directory
-    - draw the correlation graph between the merchants' final ranking and the individual ranking of the other features, save the figure to `plots` directory
+1. **Please visit the `scripts` directory and run the files in order:**
+    1. `requirements.txt`: install all the package needed for the rest of code
+    2. `ETL script.py`: 
+        - read the files from `data/tables` directory
+        - preprocess the data, such as detect NULL values, delete outliers
+        - generated some features and export some tables to `data/curated` directory
+        - download the external datasets to `data/external` and `data/outer` directories
+2. **Please visit the `models` directory and run the files in order:**
+    1. `prediction.ipynb`: use multi-layer perceptron model to predict the next monthly sales for each merchant, then export the table to `data/curated` directory 
+3. **Please visit the `models` directory and run the files in order:**
+    1. `Combine_table.ipynb`: read the files from `data/curated` directory to curate a final dataset for the ranking system, export the final dataset (named 'merchant_info') to `data/curated` directory
+    2. `geovisualisation.ipynb`: draw some geographical maps from the external datasets in `data/external` and `data/outer` directories
+    3. `Visualization.ipynb`: draw some images from the final dataset and save them to `plots` directory <br />
+4. **Please visit the `models` directory again and run the files in order:**
+    1. `Fitting_model.ipynb`: 
+        - use two different models and combined their ranking result to get the final ranking on the merchants, then select the top 100 merchants
+        - grouped the merchants into 5 segments, select the top 10 merchants in each segments
+        - export the files to `data/curated` directory
+        - draw the correlation graph between the merchants' final ranking and the individual ranking of the other features, save the figure to `plots` directory
