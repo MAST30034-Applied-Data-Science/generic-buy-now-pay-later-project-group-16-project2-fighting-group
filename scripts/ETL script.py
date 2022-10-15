@@ -186,7 +186,7 @@ post_sa2 = post_sa2\
     .groupBy("postcode", "SA2_MAINCODE_2016")\
     .agg(F.avg("Lat_double").alias("avg_lat"), F.avg("Long_double").alias("avg_long"))
 
-post_sa2.write.mode("overwrite").parquet("data/external/postcode_SA2.parquet")
+#post_sa2.write.mode("overwrite").parquet("data/external/postcode_SA2.parquet")
 
 # Download SA2 2021 information
 url = "https://www.abs.gov.au/statistics/standards/australian-statistical-geography-standard-asgs-edition-3/jul2021-jun2026/access-and-downloads/digital-boundary-files/SA2_2021_AUST_SHP_GDA2020.zip" 
@@ -219,7 +219,7 @@ sa2_2021_temp = spark.createDataFrame(sa2_pd_temp)
 sa2_2021_vic = sa2_2021_temp.filter(F.col("STE_NAME21")=="Victoria")
 sa2_2021_vic_w_geo = sa2_2021_vic.withColumn("geometry", get_shapefile_udf(F.col("LOCI_URI21")))
 sa2_2021_vic_w_geo = sa2_2021_vic_w_geo.select("SA2_CODE21", "SA2_NAME21", "geometry")
-sa2_2021_vic_w_geo.write.option("maxRecordsPerFile", 1).mode("overwrite").parquet("data/external/SA2_2021_VIC_shapefile.parquet")
+#sa2_2021_vic_w_geo.write.option("maxRecordsPerFile", 1).mode("overwrite").parquet("data/external/SA2_2021_VIC_shapefile.parquet")
 
 # Download file with 2016 SA2 info and 2021 SA2 info
 url = "https://www.abs.gov.au/statistics/standards/australian-statistical-geography-standard-asgs-edition-3/jul2021-jun2026/access-and-downloads/correspondences/CG_SA2_2016_SA2_2021.csv"
@@ -229,7 +229,7 @@ urlretrieve(url, output_dir)
 
 correspondences= spark.read.option("header",True).csv('data/outer/correspondences.csv') #read the parquet 
 correspondences = correspondences.na.drop()
-correspondences.write.parquet("data/external/correspondences.parquet")
+#correspondences.write.parquet("data/external/correspondences.parquet")
 
 # Find 2016 post code and 2021 sa2 correspondence
 print(post_sa2.dtypes)
@@ -238,7 +238,7 @@ post_sa2_2021 = correspondences.join(post_sa2,correspondences.SA2_MAINCODE_2016 
 
 # JOIN tables
 post_sa2_2021 = post_sa2_2021.drop("SA2_NAME_2016", "SA2_MAINCODE_2016")
-post_sa2_2021.write.mode("overwrite").parquet("data/external/postcode_sa2_conrrespondences.parquet")
+post_sa2_2021.write.parquet("data/external/postcode_sa2_conrrespondences.parquet")
 ## census_age&income
 # read the external census datasets
 census_04A_age = spark.read.parquet('data/external/census_data_2021_04A.parquet')
@@ -246,8 +246,9 @@ census_04B_age = spark.read.parquet('data/external/census_data_2021_04B.parquet'
 census_17A_income = spark.read.parquet('data/external/census_data_2021_17A.parquet')
 census_17B_income = spark.read.parquet('data/external/census_data_2021_17B.parquet')
 census_17C_income = spark.read.parquet('data/external/census_data_2021_17C.parquet')
-correspondences = spark.read.parquet('data/external/correspondences.parquet')
-postcode = spark.read.parquet('data/external/postcode_SA2.parquet/')
+#correspondences = spark.read.parquet('data/external/correspondences.parquet')
+postcode = post_sa2
+#postcode = spark.read.parquet('data/external/postcode_SA2.parquet/')
 
 # Merge the age dataframe
 Age_Data = census_04A_age.join(census_04B_age, census_04A_age.SA2_CODE_2021 == census_04B_age.SA2_CODE_2021).drop(census_04B_age.SA2_CODE_2021)
