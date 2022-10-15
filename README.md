@@ -11,8 +11,8 @@ Group members and student ID:
 
 ## Project Information
 **Research Goal:** 
-- Generate some suitable features from the given tables. Then establish a ranking systme to select the top 100 merchants for partership with buy now pay later company. 
-- Discover what feature(s) can greatly separated merchants that should and shouldn’t be accepted for partnership.
+- Generate some suitable features from the given tables. Then establish a ranking system to select the top 100 merchants for partnership with the buy now pay later company. 
+- Discover what feature(s) can greatly separate merchants that should and shouldn’t be accepted for partnership.
 
 **Timeline:** The timeline for the research area is 28/02/2021 - 28/08/2022
 
@@ -23,27 +23,27 @@ Group members and student ID:
 
 ## Pipeline
 1. **Please visit the `scripts` directory and run the files in order:**
-    1. `requirements.txt`: install all the package needed for the rest of code
+    1. `requirements.txt`: install all the packages needed for the rest of the code
     2. `ETL script.py`: 
-        - read the files from `data/tables` directory
+        - read the files from the `data/tables` directory
         - preprocess the data, such as detect NULL values, delete outliers
-        - generated some features and export some tables to `data/curated` directory
+        - generated some features and exported some tables to the `data/curated` directory
         - download the external datasets to `data/external` and `data/outer` directories
 2. **Please visit the `models` directory and run the files in order:**
-    1. `prediction.ipynb`: use multi-layer perceptron model to predict the next monthly sales for each merchant, then export the table to `data/curated` directory 
+    1. `prediction. ipynb`: use multi-layer perceptron model to predict the next monthly sales for each merchant, then export the table to the `data/curated` directory 
 3. **Please visit the `notebooks` directory and run the files in order:**
-    1. `Combine_table.ipynb`: read the files from `data/curated` directory to curate a final dataset for the ranking system, export the final dataset (named 'merchant_info') to `data/curated` directory
-    2. `geovisualisation.ipynb`: draw some geographical maps from the external datasets in `data/external` and `data/outer` directories
-    3. `Visualization.ipynb`: draw some images from the final dataset and save them to `plots` directory <br />
+    1. `Combine_table.ipynb`: read the files from the `data/curated` directory to curate a final dataset for the ranking system, export the final dataset (named 'merchant_info') to the `data/curated` directory
+    2. `geo visualisation.ipynb`: draw some geographical maps from the external datasets in the `data/external` and `data/outer` directories
+    3. `Visualization.ipynb`: draw some images from the final dataset and save them to the `plots` directory <br />
 4. **Please visit the `models` directory again and run the files in order:**
     1. `Fitting_model.ipynb`: 
-        - use two different models and combined their ranking result to get the final ranking on the merchants, then select the top 100 merchants
-        - grouped the merchants into 5 segments, select the top 10 merchants in each segments
-        - export the files to `data/curated` directory
-        - draw the correlation graph between the merchants' final ranking and the individual ranking of the other features, save the figure to `plots` directory
+        - use two different models and combined their ranking results to get the final ranking on the merchants, then select the top 100 merchants
+        - grouped the merchants into 5 segments, select the top 10 merchants in each segment
+        - export the files to the `data/curated` directory
+        - draw the correlation graph between the merchants' final ranking and the individual ranking of the other features, and save the figure to the `plots` directory
     2. `findings.ipynb`:
         - Do more visualization and analysis
 5. **Please visit the `notebooks` again directory and run the file:**
     1. `summary notebook.ipynb`:
-        - The final summary notebook which summaries all the process and results
+        - The final summary notebook which summaries all the processes and results
 
