@@ -30,7 +30,7 @@ Group members and student ID:
         - download the external datasets to `data/external` and `data/outer` directories
         - generated some features and exported some tables to the `data/curated` directory
 2. **Please visit the `models` directory and run the files in order:**
-    1. `prediction. ipynb`: use multi-layer perceptron model to predict the next monthly sales for each merchant, then export the table to the `data/curated` directory 
+    1. `prediction.ipynb`: use multi-layer perceptron model to predict the next monthly sales for each merchant, then export the table to the `data/curated` directory 
 3. **Please visit the `notebooks` directory and run the files in order:**
     1. `Combine_table.ipynb`: read the files from the `data/curated` directory to curate a final dataset for the ranking system, export the final dataset (named 'merchant_info') to the `data/curated` directory
     2. `geo visualisation.ipynb`: draw some geographical maps from the external datasets in the `data/external` and `data/outer` directories
