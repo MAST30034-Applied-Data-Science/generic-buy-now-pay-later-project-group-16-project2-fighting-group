@@ -31,7 +31,7 @@ Group members and student ID:
         - download the external datasets to `data/external` and `data/outer` directories
 2. **Please visit the `models` directory and run the files in order:**
     1. `prediction.ipynb`: use multi-layer perceptron model to predict the next monthly sales for each merchant, then export the table to `data/curated` directory 
-3. **Please visit the `models` directory and run the files in order:**
+3. **Please visit the `notebooks` directory and run the files in order:**
     1. `Combine_table.ipynb`: read the files from `data/curated` directory to curate a final dataset for the ranking system, export the final dataset (named 'merchant_info') to `data/curated` directory
     2. `geovisualisation.ipynb`: draw some geographical maps from the external datasets in `data/external` and `data/outer` directories
     3. `Visualization.ipynb`: draw some images from the final dataset and save them to `plots` directory <br />
@@ -41,3 +41,9 @@ Group members and student ID:
         - grouped the merchants into 5 segments, select the top 10 merchants in each segments
         - export the files to `data/curated` directory
         - draw the correlation graph between the merchants' final ranking and the individual ranking of the other features, save the figure to `plots` directory
+    2. `findings.ipynb`:
+        - Do more visualization and analysis
+5. **Please visit the `notebooks` again directory and run the file:**
+    1. `summary notebook.ipynb`:
+        - The final summary notebook which summaries all the process and results
+
