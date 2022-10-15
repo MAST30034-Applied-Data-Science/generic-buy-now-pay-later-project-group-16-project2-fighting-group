@@ -27,8 +27,8 @@ Group members and student ID:
     2. `ETL script.py`: 
         - read the files from the `data/tables` directory
         - preprocess the data, such as detect NULL values, delete outliers
-        - generated some features and exported some tables to the `data/curated` directory
         - download the external datasets to `data/external` and `data/outer` directories
+        - generated some features and exported some tables to the `data/curated` directory
 2. **Please visit the `models` directory and run the files in order:**
     1. `prediction. ipynb`: use multi-layer perceptron model to predict the next monthly sales for each merchant, then export the table to the `data/curated` directory 
 3. **Please visit the `notebooks` directory and run the files in order:**
