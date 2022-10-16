@@ -2,7 +2,7 @@
 
 Postal Areas (POAs) are designed to approximate postcode boundaries as closely as possible. They enable comparison of ABS data with other data collected using postcodes as the geographic reference.
 
-Since the 2016 Census, POAs have been approximated from Mesh Blocks rather than Statistical Areas Level 1 (SA1s), which enables POAs to more closely resemble the associated postcodes. Due to this change in methodology for approximating, there were unallocated postcodes listed in the previous 2011 and 2016POA_readme documents for the DataPack product that no longer apply.
+Since the 2016 Census, POAs have been approximated from Mesh Blocks rather than Statistical Areas Level 1 (SA1s), which enables POAs to ressemble the associated postcodes more closely. Due to this change in methodology for approximating, there were unallocated postcodes listed in the previous 2011 and 2016POA_readme documents for the DataPack product that no longer apply.
 
 When working with data on POAs, it is important to remember that the data relates to the POA boundary and not to the postcode boundary. There are some official postcodes that are not included in POAs. This occurs when a Mesh Block cannot be allocated to a postcode. There are two situations where this occurs:
 #  a Mesh Block covers more than one whole postcode, and the Mesh Block can be allocated to only one postcode
@@ -10,7 +10,7 @@ When working with data on POAs, it is important to remember that the data relate
 
 Postal Areas exclude postcodes that are not street delivery areas. These include post office boxes, mail back competitions, large volume receivers and specialist delivery postcodes. These postcodes are only valid for postal addresses and are not a valid location for population data.
 
-Where POAs cross state or territory borders, standard Census products will provide data for the entire POA. The following table lists these POAs
+Where POAs cross state or territory borders, standard Census products will provide data for the entire POA. The following table lists these POAs,
 
 POAs that cross state / territory borders
 +----------+------------------------------+---------------------------------------------------------+

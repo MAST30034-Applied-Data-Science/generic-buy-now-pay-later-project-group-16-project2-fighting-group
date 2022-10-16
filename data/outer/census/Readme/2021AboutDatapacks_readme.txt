@@ -1,4 +1,4 @@
-# About Datapacks
+# About DataPacks
 
 DataPacks contain comprehensive data about people, families and dwellings for all Census geographies ranging from Australia down to Statistical Area Level 1 (SA1). They are containers of data based on Census Community Profiles and include digital boundary information, metadata and reference documents to enable you to read the data. 
 

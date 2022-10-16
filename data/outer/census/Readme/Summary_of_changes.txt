@@ -1,0 +1,7 @@
+# Second release of GCP contains the following amendments
+
+LFSP data populated into G22 table for LFSP component.
+
+Table G62:  'Train and two other methods' has been added to sequential template for sequential cell 16961 - 16963. This has added 3 extra cells to template and the G62 file, now ending in 16984.
+
+The changes between ASGS 2016 and ASGS 2021 are recorded in the "changes from the previous edition of the ASGS" section of ASGS 2021 Edition 3 publication from https://www.abs.gov.au/statistics/standards/australian-statistical-geography-standard-asgs-edition-3/jul2021-jun2026/main-structure-and-greater-capital-city-statistical-areas/changes-previous-edition-asgs
