@@ -84,11 +84,11 @@ consumer_fraud_final = consumer_fraud_grouped.withColumn(
     F.when(F.col('average_prob_con')>=70, 1).otherwise(0))
 
 consumer_final = consumer.join(consumer_fraud_final, consumer.user_id == consumer_fraud_final.user_id).drop(consumer_fraud_final.user_id).fillna(0).fillna(0)
-consumer_final.write.parquet(f"data/curated/final_consumer.parquet")
+consumer_final.write.mode('overwrite').parquet(f"data/curated/final_consumer.parquet")
 
 transaction = ori_transaction.join(consumer_final, ori_transaction.user_id == consumer_final.user_id).drop(consumer_final.user_id)
 transaction = transaction.sort(transaction.user_id)
-transaction.write.parquet(f"data/curated/final_transaction.parquet")
+transaction.write.mode('overwrite').parquet(f"data/curated/final_transaction.parquet")
 
 # ------------------------------------
 ## OBTAIN THE PROCESSED MERCHANT DATA
@@ -229,7 +229,7 @@ post_sa2_2021 = correspondences.join(post_sa2,correspondences.SA2_MAINCODE_2016 
 
 # JOIN tables: this will be the final SA2 and postcode correnpondence file
 post_sa2_2021 = post_sa2_2021.drop("SA2_NAME_2016", "SA2_MAINCODE_2016")
-post_sa2_2021.write.parquet("data/external/postcode_sa2_conrrespondences.parquet")
+post_sa2_2021.write.mode('overwrite').parquet("data/external/postcode_sa2_conrrespondences.parquet")
 
 
 # ------------------------------------
@@ -269,5 +269,5 @@ income_Data_total = income_Data_total.select("SA2_CODE_2021","income_percentage"
 
 # Combine income data and the age data to get final census data
 census_data = income_Data_total.join(Age_Data_rate, income_Data_total.SA2_CODE_2021 == Age_Data_rate.SA2_CODE_2021).drop(Age_Data_rate.SA2_CODE_2021)
-census_data.write.parquet('data/curated/final_census.parquet')
+census_data.write.mode('overwrite').parquet('data/curated/final_census.parquet')
 
