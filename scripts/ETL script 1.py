@@ -29,36 +29,48 @@ spark = (
 )
 
 # ---------------------------------------
-## OBTAINED THE PROCESSED TRANSACTION DATA
-# read the given transaction datasets
+## OBTAINED THE PROCESSED TRANSACTION data
+# input and read the given transaction datasets
 
-num_folders = input('Please enter the number of transaction folders in total: ')
-transaction_name = input('Please enter the name of the first folder: ')
-ori_transaction = spark.read.parquet('data/tables/'+str(transaction_name)).sort('order_datetime')
+while True:
+    try: 
+        num_folders = int(input('Please enter the number of transaction folders in total: '))
+    except ValueError:
+        print('Provided value is not an integer, please enter an integer: ')
+        continue
+    else:
+        break    
 
-for i in range(int(num_folders)-1):
-    transaction_name = input('Please enter the name of the next folder: ')
-    ori_transaction_rest = spark.read.parquet('data/tables/'+str(transaction_name)).sort('order_datetime')
-    ori_transaction = ori_transaction.union(ori_transaction_rest)
+while True:
+    try: 
+        transaction_name = input('Please enter the name of the first folder: ')
+        ori_transaction = spark.read.parquet('data/tables/'+str(transaction_name)).sort('order_datetime')
+        for i in range(int(num_folders)-1):
+            transaction_name = input('Please enter the name of the next folder: ')
+            ori_transaction_rest = spark.read.parquet('data/tables/'+str(transaction_name)).sort('order_datetime')
+            ori_transaction = ori_transaction.union(ori_transaction_rest)
+    except:
+        print('Invalid folder name, please enter the correct folder name, start from the first folder again: ')
+        continue
+    else:
+        break
 
-start_date_str = str(input('Please enter the start date of the transaction (in yyyy-mm-dd format): '))
-end_date_str = str(input('Please enter the end date of the transaction (in yyyy-mm-dd format): '))
-start_date = datetime.strptime(start_date_str, '%Y-%m-%d')
-end_date = datetime.strptime(end_date_str, '%Y-%m-%d')
+
+while True:
+    try: 
+        start_date_str = str(input('Please enter the start date of the transaction (in yyyy-mm-dd format): '))
+        end_date_str = str(input('Please enter the end date of the transaction (in yyyy-mm-dd format): '))
+        start_date = datetime.strptime(start_date_str, '%Y-%m-%d')
+        end_date = datetime.strptime(end_date_str, '%Y-%m-%d')
+    except:
+        print("Incorrect date format, should be yyyy-mm-dd")
+        continue
+    else:
+        break
 
 number_of_months = (end_date.year - start_date.year) * 12 + (end_date.month - start_date.month)
 with open('data/number_of_months.txt', 'w') as f:
     f.write(str(number_of_months))
-
-'''
-ori_transaction1 = spark.read.parquet('data/tables/transactions_20210228_20210827_snapshot').sort('order_datetime')
-ori_transaction2 = spark.read.parquet('data/tables/transactions_20210828_20220227_snapshot').sort('order_datetime')
-ori_transaction3 = spark.read.parquet('data/tables/transactions_20220228_20220828_snapshot').sort('order_datetime')
-
-# merge all the transaction data
-ori_transaction = ori_transaction1.union(ori_transaction2)
-ori_transaction = ori_transaction.union(ori_transaction3)
-'''
 
 ori_transaction = ori_transaction.drop('order_id')
 ori_transaction = ori_transaction.dropna(how='any')
@@ -116,7 +128,7 @@ transaction = transaction.sort(transaction.user_id)
 transaction.write.mode('overwrite').parquet(f"data/curated/final_transaction.parquet")
 
 # ------------------------------------
-## OBTAIN THE PROCESSED MERCHANT DATA
+## OBTAIN THE PROCESSED MERCHANT data
 # read the given merchant datasets
 merchant_fraud = spark.read.option("header",True).csv('data/tables/merchant_fraud_probability.csv')
 tbl_merchants = spark.read.parquet('data/tables/tbl_merchants.parquet')
