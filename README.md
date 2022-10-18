@@ -28,26 +28,26 @@ Group members and student ID:
     2. The `census` file needs to be downloaded under the `outer` file
 2. **Please visit the `scripts` directory and run the files in order:**
     1. `requirements.txt`: install all the packages needed for the rest of the code
-    2. `ETL script.py`: 
+    2. `ETL_script.py`: 
         - read the files from the `data/tables` directory
         - preprocess the data, such as detect NULL values, delete outliers
-        - download the external datasets to `data/external` and `data/outer` directories
         - generated some features and exported some tables to the `data/curated` directory
 3. **Please visit the `models` directory and run the files in order:**
     1. `prediction.ipynb`: use multi-layer perceptron model to predict the next monthly sales for each merchant, then export the table to the `data/curated` directory 
 4. **Please visit the `notebooks` directory and run the files in order:**
-    1. `Combine_table.ipynb`: read the files from the `data/curated` directory to curate a final dataset for the ranking system, export the final dataset (named 'merchant_info') to the `data/curated` directory
-    2. `geo visualisation.ipynb`: draw some geographical maps from the external datasets in the `data/external` and `data/outer` directories
-    3. `Visualization.ipynb`: draw some images from the final dataset and save them to the `plots` directory <br />
+    1. `read_external_data.ipynb`: download the external datasets to `data/external` and `data/outer` directories
+    2. `combine_table.ipynb`: read the files from the `data/curated` directory to curate a final dataset for the ranking system, export the final dataset (named 'merchant_info') to the `data/curated` directory
+    3. `geovisualisation.ipynb`: draw some geographical maps from the external datasets in the `data/external` and `data/outer` directories
+    4. `visualization.ipynb`: draw some images from the final dataset and save them to the `plots` directory <br />
 5. **Please visit the `models` directory again and run the files in order:**
-    1. `Fitting_model.ipynb`: 
+    1. `fitting_model.ipynb`: 
         - use two different models and combined their ranking results to get the final ranking on the merchants, then select the top 100 merchants
         - grouped the merchants into 5 segments, select the top 10 merchants in each segment
         - export the files to the `data/curated` directory
-        - draw the correlation graph between the merchants' final ranking and the individual ranking of the other features, and save the figure to the `plots` directory
+        - draw the correlation graph between the merchants' final ranking and the individual ranking of the other features, and save the figures to the `plots` directory
     2. `findings.ipynb`:
-        - Do more visualization and analysis
+        - Do more visualization and analysis, and save the figures to the `plots` directory
 6. **Please visit the `notebooks` again directory and run the file:**
-    1. `summary notebook.ipynb`:
+    1. `summary_notebook.ipynb`:
         - The final summary notebook which summaries all the processes and results
 
