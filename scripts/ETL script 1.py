@@ -35,11 +35,13 @@ spark = (
 while True:
     try: 
         num_folders = int(input('Please enter the number of transaction folders in total: '))
+        if num_folders <= 0:
+            print("Input must be a positive integer, try again")
+            continue
+        break
     except ValueError:
-        print('Provided value is not an integer, please enter an integer: ')
+        print('Input must be a positive integer, try again')
         continue
-    else:
-        break    
 
 while True:
     try: 
@@ -50,11 +52,10 @@ while True:
             ori_transaction_rest = spark.read.parquet('data/tables/'+str(transaction_name)).sort('order_datetime')
             ori_transaction = ori_transaction.union(ori_transaction_rest)
     except:
-        print('Invalid folder name, please enter the correct folder name, start from the first folder again: ')
+        print('Please enter the correct folder name, start from the first folder, try again')
         continue
     else:
         break
-
 
 while True:
     try: 
@@ -63,7 +64,7 @@ while True:
         start_date = datetime.strptime(start_date_str, '%Y-%m-%d')
         end_date = datetime.strptime(end_date_str, '%Y-%m-%d')
     except:
-        print("Incorrect date format, should be yyyy-mm-dd")
+        print("Correct date format should be yyyy-mm-dd, try again")
         continue
     else:
         break
