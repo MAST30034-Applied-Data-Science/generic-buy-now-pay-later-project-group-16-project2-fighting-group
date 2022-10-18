@@ -22,20 +22,24 @@ Group members and student ID:
 - **File with 2016 SA2 info and 2021 SA2 info:** https://www.abs.gov.au/statistics/standards/australian-statistical-geography-standard-asgs-edition-3/jul2021-jun2026/access-and-downloads/correspondences/CG_SA2_2016_SA2_2021.csv
 
 ## Pipeline
-1. **Please visit the `scripts` directory and run the files in order:**
+1. **Please use this `Google Drive shared link` to download these two large file:**
+    https://drive.google.com/drive/folders/1hebdc2wFIKHbXpnYWN7jeA_c8mP9-y14?usp=sharing (Accessable for unimelb email address)
+    1. The `prediction` file needs to be downloaded under the `curated` file
+    2. The `census` file needs to be downloaded under the `outer` file
+2. **Please visit the `scripts` directory and run the files in order:**
     1. `requirements.txt`: install all the packages needed for the rest of the code
     2. `ETL script.py`: 
         - read the files from the `data/tables` directory
         - preprocess the data, such as detect NULL values, delete outliers
         - download the external datasets to `data/external` and `data/outer` directories
         - generated some features and exported some tables to the `data/curated` directory
-2. **Please visit the `models` directory and run the files in order:**
+3. **Please visit the `models` directory and run the files in order:**
     1. `prediction.ipynb`: use multi-layer perceptron model to predict the next monthly sales for each merchant, then export the table to the `data/curated` directory 
-3. **Please visit the `notebooks` directory and run the files in order:**
+4. **Please visit the `notebooks` directory and run the files in order:**
     1. `Combine_table.ipynb`: read the files from the `data/curated` directory to curate a final dataset for the ranking system, export the final dataset (named 'merchant_info') to the `data/curated` directory
     2. `geo visualisation.ipynb`: draw some geographical maps from the external datasets in the `data/external` and `data/outer` directories
     3. `Visualization.ipynb`: draw some images from the final dataset and save them to the `plots` directory <br />
-4. **Please visit the `models` directory again and run the files in order:**
+5. **Please visit the `models` directory again and run the files in order:**
     1. `Fitting_model.ipynb`: 
         - use two different models and combined their ranking results to get the final ranking on the merchants, then select the top 100 merchants
         - grouped the merchants into 5 segments, select the top 10 merchants in each segment
@@ -43,7 +47,7 @@ Group members and student ID:
         - draw the correlation graph between the merchants' final ranking and the individual ranking of the other features, and save the figure to the `plots` directory
     2. `findings.ipynb`:
         - Do more visualization and analysis
-5. **Please visit the `notebooks` again directory and run the file:**
+6. **Please visit the `notebooks` again directory and run the file:**
     1. `summary notebook.ipynb`:
         - The final summary notebook which summaries all the processes and results
 
